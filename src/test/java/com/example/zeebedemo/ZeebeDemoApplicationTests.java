@@ -102,7 +102,7 @@ class ZeebeDemoApplicationTests {
 	public void createInstance1Test() {
 		Map<String, Object> params = Maps.newHashMap();
 		params.put("orderId", "123456");
-		params.put("price", 50);
+		params.put("price", 150);
 		WorkflowInstanceEvent workflowInstance = client.newCreateInstanceCommand().bpmnProcessId("order-process").latestVersion().variables(params)
 				.send().join();
 		long workflowKey = workflowInstance.getWorkflowKey();
