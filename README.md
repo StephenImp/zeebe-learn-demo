@@ -1,4 +1,5 @@
-找到test包下的ZeebeDemoApplicationTests
+找到test包下的ZeebeDemoOrderProcess2Tests
+
 修改initZeebeClient方法中关于zeebe borker的连接信息
 然后 依次运行：
 1. deployOrderProcess()
