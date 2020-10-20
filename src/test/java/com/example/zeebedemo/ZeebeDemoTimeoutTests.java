@@ -42,7 +42,7 @@ class ZeebeDemoTimeoutTests extends ZeebeDemoBaseTests{
 		client.newWorker().jobType("par_order").handler((jobClient, activatedJob) -> {
 			int i = random.nextInt(8);
 			System.out.println("sleep: " + i);
-//			Thread.sleep(i * 1000);
+			Thread.sleep(i * 1000);
 			Map<String, Object> params = activatedJob.getVariablesAsMap();
 			System.out.println("params: " + params);
 			params.put("par_order", true);
@@ -114,8 +114,7 @@ class ZeebeDemoTimeoutTests extends ZeebeDemoBaseTests{
 		params.put("orderId", "123456");
 		WorkflowInstanceEvent workflowInstance = client.newCreateInstanceCommand().bpmnProcessId("timeout").latestVersion().variables(params)
 				.send().join();
-		long workflowKey = workflowInstance.getWorkflowKey();
-		System.out.println("workflowKey: " + workflowKey);
+		System.out.println("workflowInstanceKey: " + workflowInstance.getWorkflowInstanceKey());
 	}
 
 }

@@ -92,8 +92,7 @@ class ZeebeDemoCatchErrorTests extends ZeebeDemoBaseTests{
 		params.put("orderId", "123456");
 		WorkflowInstanceEvent workflowInstance = client.newCreateInstanceCommand().bpmnProcessId("catch-error").latestVersion().variables(params)
 				.send().join();
-		long workflowKey = workflowInstance.getWorkflowKey();
-		System.out.println("workflowKey: " + workflowKey);
+		System.out.println("workflowInstanceKey: " + workflowInstance.getWorkflowInstanceKey());
 	}
 
 }

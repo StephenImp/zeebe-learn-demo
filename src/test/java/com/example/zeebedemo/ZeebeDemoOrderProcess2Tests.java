@@ -87,8 +87,7 @@ class ZeebeDemoOrderProcess2Tests extends ZeebeDemoBaseTests{
 		params.put("price", 50);
 		WorkflowInstanceEvent workflowInstance = client.newCreateInstanceCommand().bpmnProcessId("order-process").latestVersion().variables(params)
 				.send().join();
-		long workflowKey = workflowInstance.getWorkflowKey();
-		System.out.println("workflowKey: " + workflowKey);
+		System.out.println("workflowInstanceKey: " + workflowInstance.getWorkflowInstanceKey());
 	}
 
 	@Test

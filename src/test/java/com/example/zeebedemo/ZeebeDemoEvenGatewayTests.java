@@ -87,8 +87,7 @@ class ZeebeDemoEvenGatewayTests extends ZeebeDemoBaseTests{
 		params.put("orderId", "123456");
 		WorkflowInstanceEvent workflowInstance = client.newCreateInstanceCommand().bpmnProcessId("even-gateway").latestVersion().variables(params)
 				.send().join();
-		long workflowKey = workflowInstance.getWorkflowKey();
-		System.out.println("workflowKey: " + workflowKey);
+		System.out.println("workflowInstanceKey: " + workflowInstance.getWorkflowInstanceKey());
 	}
 
 	@Test

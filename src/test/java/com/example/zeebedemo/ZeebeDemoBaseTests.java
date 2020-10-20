@@ -10,7 +10,7 @@ class ZeebeDemoBaseTests {
 	@BeforeEach
 	public void initZeebeClient(){
 		client = ZeebeClient.newClientBuilder()
-				.brokerContactPoint("192.168.153.138:26500")
+				.brokerContactPoint("129.11.9.99:26500")
 				.usePlaintext()
 				.build();
 		System.out.println("connected...");

@@ -87,8 +87,7 @@ class ZeebeDemoOrderProcessParallelTests extends ZeebeDemoBaseTests{
 		params.put("price", 50);
 		WorkflowInstanceEvent workflowInstance = client.newCreateInstanceCommand().bpmnProcessId("order-process-parallel").latestVersion().variables(params)
 				.send().join();
-		long workflowKey = workflowInstance.getWorkflowKey();
-		System.out.println("workflowKey: " + workflowKey);
+		System.out.println("workflowInstanceKey: " + workflowInstance.getWorkflowInstanceKey());
 	}
 
 	@Test
