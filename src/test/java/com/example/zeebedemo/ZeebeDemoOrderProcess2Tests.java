@@ -40,8 +40,12 @@ class ZeebeDemoOrderProcess2Tests extends ZeebeDemoBaseTests{
 	}
 
 
-	//CountDownLatch countDownLatch = new CountDownLatch(1);
+	CountDownLatch countDownLatch = new CountDownLatch(1);
 
+	/**
+	 * 激活节点
+	 * @throws InterruptedException
+	 */
 	@Test
 	public void createOrderPayWorkerTest() throws InterruptedException {
 		client.newWorker().jobType("order-pay").handler((jobClient, activatedJob) -> {
@@ -53,7 +57,7 @@ class ZeebeDemoOrderProcess2Tests extends ZeebeDemoBaseTests{
 		}).open();
 
 		System.out.println("wait order-pay job");
-		//countDownLatch.await();
+		countDownLatch.await();
 	}
 
 	@Test
@@ -67,7 +71,7 @@ class ZeebeDemoOrderProcess2Tests extends ZeebeDemoBaseTests{
 		}).open();
 
 		System.out.println("wait no-insurance job");
-		//countDownLatch.await();
+		countDownLatch.await();
 	}
 
 	@Test
@@ -81,7 +85,7 @@ class ZeebeDemoOrderProcess2Tests extends ZeebeDemoBaseTests{
 		}).open();
 
 		System.out.println("wait have-insurance job");
-		//countDownLatch.await();
+		countDownLatch.await();
 	}
 
 	@Test
