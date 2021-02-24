@@ -39,6 +39,8 @@ class ZeebeDemoTimeoutTests extends ZeebeDemoBaseTests{
 	Random random = new Random();
 	@Test
 	public void createParOrderWorkerTest() throws InterruptedException {
+
+		//添加定时任务
 		client.newWorker().jobType("par_order").handler((jobClient, activatedJob) -> {
 			int i = random.nextInt(8);
 			System.out.println("sleep: " + i);

@@ -33,7 +33,7 @@
       <bpmn:outgoing>SequenceFlow_0b8s6zz</bpmn:outgoing>
     </bpmn:serviceTask>
     <bpmn:sequenceFlow id="SequenceFlow_07dtqmr" name="&#62;100" sourceRef="ExclusiveGateway_1wlqnfc" targetRef="Task_1gv1gna">
-      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">= price&gt;100</bpmn:conditionExpression>
+      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">price>100</bpmn:conditionExpression>
     </bpmn:sequenceFlow>
     <bpmn:serviceTask id="Task_1gv1gna" name="have insurance">
       <bpmn:extensionElements>

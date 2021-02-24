@@ -32,11 +32,15 @@ class ZeebeDemoOrderProcess2Tests extends ZeebeDemoBaseTests{
 				.addResourceFromClasspath("order-process2.bpmn").send().join(3, TimeUnit.SECONDS);
 		String bpmnProcessId = deployment.getWorkflows().get(0).getBpmnProcessId();
 		System.out.println(bpmnProcessId);
+
+		final int version = deployment.getWorkflows().get(0).getVersion();
+		System.out.println("Workflow deployed. Version: " + version);
+
 		assert bpmnProcessId.equals("order-process");
 	}
 
 
-	CountDownLatch countDownLatch = new CountDownLatch(1);
+	//CountDownLatch countDownLatch = new CountDownLatch(1);
 
 	@Test
 	public void createOrderPayWorkerTest() throws InterruptedException {
@@ -49,7 +53,7 @@ class ZeebeDemoOrderProcess2Tests extends ZeebeDemoBaseTests{
 		}).open();
 
 		System.out.println("wait order-pay job");
-		countDownLatch.await();
+		//countDownLatch.await();
 	}
 
 	@Test
@@ -63,7 +67,7 @@ class ZeebeDemoOrderProcess2Tests extends ZeebeDemoBaseTests{
 		}).open();
 
 		System.out.println("wait no-insurance job");
-		countDownLatch.await();
+		//countDownLatch.await();
 	}
 
 	@Test
@@ -77,7 +81,7 @@ class ZeebeDemoOrderProcess2Tests extends ZeebeDemoBaseTests{
 		}).open();
 
 		System.out.println("wait have-insurance job");
-		countDownLatch.await();
+		//countDownLatch.await();
 	}
 
 	@Test
@@ -85,6 +89,7 @@ class ZeebeDemoOrderProcess2Tests extends ZeebeDemoBaseTests{
 		Map<String, Object> params = Maps.newHashMap();
 		params.put("orderId", "123456");
 		params.put("price", 50);
+		//创建一个工作流实例
 		WorkflowInstanceEvent workflowInstance = client.newCreateInstanceCommand().bpmnProcessId("order-process").latestVersion().variables(params)
 				.send().join();
 		System.out.println("workflowInstanceKey: " + workflowInstance.getWorkflowInstanceKey());
